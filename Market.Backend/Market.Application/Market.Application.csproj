@@ -20,4 +20,9 @@
     <ProjectReference Include="..\Market.Shared\Market.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Modules\Catalog\" />
+    <Folder Include="Modules\Sales\" />
+  </ItemGroup>
+
 </Project>

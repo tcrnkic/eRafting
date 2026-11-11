@@ -1,6 +1,6 @@
 ﻿// MarketUserEntity.cs
 using Market.Domain.Common;
-using Market.Domain.Entities.Catalog;
+
 
 namespace Market.Domain.Entities.Identity;
 
@@ -29,8 +29,7 @@ public sealed class MarketUserEntity : BaseEntity
     public ICollection<RefreshTokenEntity> RefreshTokens { get; private set; } = new List<RefreshTokenEntity>();
 
     // Many-to-many: User's favorite products
-    public ICollection<UserProductFavoriteEntity> FavoriteProducts { get; private set; } = new List<UserProductFavoriteEntity>();
-
+   
     /// <summary>
     /// Single source of truth for technical/business constraints.
     /// Used in validators and EF configuration.

@@ -24,6 +24,7 @@ public sealed class RegisterCommandHandler(
             Firstname = request.Firstname.Trim(),
             Lastname = request.Lastname.Trim(),
             Email = email,
+            Phone = PhoneRules.Normalize(request.Phone),
             Address = request.Address.TrimToNull(),
             City = request.City.TrimToNull(),
             IsAdmin = false,

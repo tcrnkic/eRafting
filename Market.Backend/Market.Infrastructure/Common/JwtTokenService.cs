@@ -41,7 +41,9 @@ public sealed class JwtTokenService : IJwtTokenService
             new(JwtRegisteredClaimNames.Iat, ToUnixTimeSeconds(nowInstant).ToString(), ClaimValueTypes.Integer64),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N"))
         };
-
+        // Owner and employee carry the agency in the token, so every request knows which agency it is scoped to.
+        if (user.AgencyId is int agencyId)
+            claims.Add(new Claim("agency_id", agencyId.ToString()));
         // --- Signature ---
         var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
         var creds = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);

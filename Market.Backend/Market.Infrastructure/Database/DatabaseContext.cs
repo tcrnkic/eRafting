@@ -1,4 +1,5 @@
 ﻿using Market.Application.Abstractions;
+using Market.Domain.Entities.Agencies;
 using Market.Domain.Entities.Finance;
 
 
@@ -12,7 +13,7 @@ public partial class DatabaseContext : DbContext, IAppDbContext
     public DbSet<RefreshTokenEntity> RefreshTokens => Set<RefreshTokenEntity>();
     public DbSet<PasswordResetTokenEntity> PasswordResetTokens => Set<PasswordResetTokenEntity>();
 
-
+    public DbSet<AgencyEntity> Agencies => Set<AgencyEntity>();
 
     public DbSet<CurrencyEntity> Currencies => Set<CurrencyEntity>();
     public DbSet<ExchangeRateEntity> ExchangeRates => Set<ExchangeRateEntity>();

@@ -1,4 +1,5 @@
-﻿using Market.Domain.Entities.Finance;
+﻿using Market.Domain.Entities.Agencies;
+using Market.Domain.Entities.Finance;
 
 namespace Market.Application.Abstractions;
 
@@ -12,8 +13,7 @@ public interface IAppDbContext
     DbSet<RefreshTokenEntity> RefreshTokens { get; }
     DbSet<PasswordResetTokenEntity> PasswordResetTokens { get; }
 
-
-
+    DbSet<AgencyEntity> Agencies { get; }
 
     DbSet<CurrencyEntity> Currencies { get; }
     DbSet<ExchangeRateEntity> ExchangeRates { get; }

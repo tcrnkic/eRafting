@@ -48,6 +48,7 @@ public class AccountIntegrationTests
             Firstname = "Lejla",
             Lastname = "Kovač",
             Email = email,
+            Phone = "+387 61 123-456",
             Password,
             Address = "Titova 10",
             City = "Sarajevo"
@@ -79,6 +80,8 @@ public class AccountIntegrationTests
         Assert.Equal(email, me!.Email);
         Assert.Equal("Titova 10", me.Address);
         Assert.Equal("Sarajevo", me.City);
+        Assert.Equal("+38761123456", me.Phone); // spaces and dashes are removed before saving
+        Assert.Null(me.AgencyId);               // a guest belongs to no agency
         Assert.False(me.IsAdmin || me.IsManager || me.IsEmployee); // a new account is a customer
     }
 
@@ -91,6 +94,7 @@ public class AccountIntegrationTests
             Firstname = "Drugi",
             Lastname = "Admin",
             Email = CustomWebApplicationFactory<Program>.AdminEmail.ToUpperInvariant(),
+            Phone = "+38761123456",
             Password
         };
 
@@ -116,13 +120,51 @@ public class AccountIntegrationTests
             Firstname = "Slaba",
             Lastname = "Lozinka",
             Email = NewEmail(),
+            Phone = "+38761123456",
             Password = password
         });
 
         // Assert
         Assert.Equal("password", Assert.Single(await ReadFieldErrorsAsync(response)).Field);
     }
+    [Theory]
+    [InlineData("")]                  // missing
+    [InlineData("123")]               // too short
+    [InlineData("abcdefgh")]          // letters
+    [InlineData("+3876112345678901")] // too long (16 digits)
+    public async Task Post_Register_InvalidPhone_ShouldReturnFieldErrorOnPhone(string phone)
+    {
+        // Act
+        var response = await CreateClient().PostAsJsonAsync("api/auth/register", new
+        {
+            Firstname = "Bez",
+            Lastname = "Telefona",
+            Email = NewEmail(),
+            Password,
+            Phone = phone
+        });
 
+        // Assert
+        Assert.Equal("phone", Assert.Single(await ReadFieldErrorsAsync(response)).Field);
+    }
+
+    [Fact]
+    public async Task Get_Me_SeededEmployee_HasAgencyAndPhone_AndAdminHasNoAgency()
+    {
+        // Act
+        var employeeClient = await _factory.GetAuthenticatedClientAsync(
+            CustomWebApplicationFactory<Program>.EmployeeEmail,
+            CustomWebApplicationFactory<Program>.EmployeePassword);
+        var employee = await employeeClient.GetFromJsonAsync<GetMeQueryDto>("api/auth/me");
+
+        var adminClient = await _factory.GetAuthenticatedClientAsync();
+        var admin = await adminClient.GetFromJsonAsync<GetMeQueryDto>("api/auth/me");
+
+        // Assert: the demo agency from the seeder belongs to the employee; the platform admin has none
+        Assert.NotNull(employee!.AgencyId);
+        Assert.False(string.IsNullOrEmpty(employee.Phone));
+        Assert.Null(admin!.AgencyId);
+    }
     [Fact]
     public async Task Post_ForgotPassword_UnknownEmail_Returns204AndSendsNoEmail()
     {

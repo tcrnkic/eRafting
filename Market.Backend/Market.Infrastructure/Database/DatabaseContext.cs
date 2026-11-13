@@ -1,5 +1,6 @@
 ﻿using Market.Application.Abstractions;
 using Market.Domain.Entities.Agencies;
+using Market.Domain.Entities.Booking;
 using Market.Domain.Entities.Finance;
 using Market.Domain.Entities.Notifications;
 
@@ -15,7 +16,9 @@ public partial class DatabaseContext : DbContext, IAppDbContext
     public DbSet<PasswordResetTokenEntity> PasswordResetTokens => Set<PasswordResetTokenEntity>();
 
     public DbSet<AgencyEntity> Agencies => Set<AgencyEntity>();
-
+    public DbSet<TourSlotEntity> TourSlots => Set<TourSlotEntity>();
+    public DbSet<ReservationEntity> Reservations => Set<ReservationEntity>();
+    public DbSet<PaymentEntity> Payments => Set<PaymentEntity>();
     public DbSet<CurrencyEntity> Currencies => Set<CurrencyEntity>();
     public DbSet<ExchangeRateEntity> ExchangeRates => Set<ExchangeRateEntity>();
     public DbSet<NotificationEntity> Notifications => Set<NotificationEntity>();

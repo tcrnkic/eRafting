@@ -8,5 +8,6 @@ export const USER_CONSTRAINTS = {
   lastnameMaxLength: 100,
   emailMaxLength: 200,
   addressMaxLength: 200,
-  cityMaxLength: 100
+  cityMaxLength: 100,
+  phoneMaxLength: 30
 } as const;

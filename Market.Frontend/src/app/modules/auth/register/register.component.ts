@@ -19,6 +19,7 @@ interface RegisterForm {
   firstname: FormControl<string>;
   lastname: FormControl<string>;
   email: FormControl<string>;
+    phone: FormControl<string>;
   password: FormControl<string>;
   /** samo na frontendu – ne šalje se */
   confirmPassword: FormControl<string>;
@@ -73,6 +74,14 @@ export class RegisterComponent extends BaseComponent {
           Validators.maxLength(this.limits.emailMaxLength)
         ]
       }),
+     phone: new FormControl('', {
+        nonNullable: true,
+        validators: [
+          Validators.required,
+          AppValidators.phone,
+          Validators.maxLength(this.limits.phoneMaxLength)
+        ]
+      }),
       password: new FormControl('', {
         nonNullable: true,
         validators: [Validators.required, AppValidators.password]
@@ -105,6 +114,7 @@ export class RegisterComponent extends BaseComponent {
       firstname: value.firstname.trim(),
       lastname: value.lastname.trim(),
       email: value.email.trim(),
+            phone: value.phone.trim(),
       password: value.password,
       // prazno polje → null (adresa i grad nisu obavezni)
       address: value.address.trim() || null,

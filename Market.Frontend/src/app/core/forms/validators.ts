@@ -85,7 +85,18 @@ export class AppValidators {
       return end.getTime() > start.getTime() ? null : { dateRange: true };
     };
   }
-
+  /**
+   * Broj telefona kao na backendu (PhoneRules): cifre s opcionalnim vodećim "+", 8 do 15 cifara.
+   * Razmaci, crtice i zagrade se ignorišu. Greška: { pattern: true } (prikazuje se "Neispravan format").
+   */
+  static phone(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value === null || value === undefined || value === '') {
+      return null;
+    }
+    const normalized = String(value).replace(/[^\d+]/g, '');
+    return /^\+?\d{8,15}$/.test(normalized) ? null : { pattern: true };
+  }
   /**
    * Lozinka po pravilu backenda: najmanje PASSWORD_MIN_LENGTH znakova, bar jedno slovo i bar
    * jedna cifra (\p{L} = bilo koje slovo, i č, ć, š...). Server provjerava isto pravilo –

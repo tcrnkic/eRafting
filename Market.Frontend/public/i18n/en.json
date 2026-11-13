@@ -70,6 +70,8 @@
       "EMAIL": "Email",
       "ADDRESS": "Address",
       "CITY": "City",
+     "PHONE": "Phone",
+      "PHONE_HINT": "E.g. +38761123456",
       "PASSWORD": "Password",
       "CONFIRM_PASSWORD": "Confirm password",
       "CURRENT_PASSWORD": "Current password",

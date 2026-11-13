@@ -1,5 +1,6 @@
 ﻿// MarketUserEntity.cs
 using Market.Domain.Common;
+using Market.Domain.Entities.Agencies;
 
 
 namespace Market.Domain.Entities.Identity;
@@ -20,7 +21,18 @@ public sealed class MarketUserEntity : BaseEntity
     /// City, e.g. "Sarajevo". (optional)
     /// </summary>
     public string? City { get; set; }
+    /// <summary>
+    /// Phone number in international format, e.g. "+38761123456".
+    /// Required when a guest registers; optional for staff accounts created by the seeder.
+    /// </summary>
+    public string? Phone { get; set; }
 
+    /// <summary>
+    /// Agency this user belongs to: the owner (IsManager) or an employee (IsEmployee).
+    /// Null for platform admins and for guests.
+    /// </summary>
+    public int? AgencyId { get; set; }
+    public AgencyEntity? Agency { get; set; }
     public bool IsAdmin { get; set; }
     public bool IsManager { get; set; }
     public bool IsEmployee { get; set; }
@@ -37,6 +49,7 @@ public sealed class MarketUserEntity : BaseEntity
     public static class Constraints
     {
         public const int FirstnameMaxLength = 100;
+        public const int PhoneMaxLength = 30;
 
         public const int LastnameMaxLength = 100;
 

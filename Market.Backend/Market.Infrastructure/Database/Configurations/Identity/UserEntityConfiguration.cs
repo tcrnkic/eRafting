@@ -36,6 +36,17 @@ public sealed class UserEntityConfiguration : IEntityTypeConfiguration<MarketUse
         b.Property(x => x.City)
             .HasMaxLength(MarketUserEntity.Constraints.CityMaxLength);
 
+        b.Property(x => x.Phone)
+         .HasMaxLength(MarketUserEntity.Constraints.PhoneMaxLength);
+
+        // Owner/employee belong to one agency. Restrict: deleting an agency must never delete its users.
+        b.HasOne(x => x.Agency)
+            .WithMany()
+            .HasForeignKey(x => x.AgencyId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        b.HasIndex(x => x.AgencyId);
+
         // Roles
         b.Property(x => x.IsAdmin)
             .HasDefaultValue(false);

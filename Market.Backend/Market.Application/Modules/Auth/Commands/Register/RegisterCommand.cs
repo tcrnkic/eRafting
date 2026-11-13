@@ -18,6 +18,10 @@ public sealed class RegisterCommand : IRequest<RegisterCommandDto>
     /// At least 8 characters with at least one letter and one digit (see <see cref="PasswordRules"/>).
     /// </summary>
     public string Password { get; init; } = string.Empty;
+    /// <summary>
+    /// Required. Digits with an optional leading "+" (8 to 15 digits); spaces and dashes are allowed and removed.
+    /// </summary>
+    public string Phone { get; init; } = string.Empty;
 
     /// <summary>
     /// Street and house number. (optional)

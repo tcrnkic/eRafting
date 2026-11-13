@@ -34,4 +34,9 @@ public interface IAppCurrentUser
     /// Indicates whether the user is a regular employee.
     /// </summary>
     bool IsEmployee { get; }
+    /// <summary>
+    /// Agency of the logged-in owner or employee (from the "agency_id" claim).
+    /// Null for platform admins and guests.
+    /// </summary>
+    int? AgencyId { get; }
 }

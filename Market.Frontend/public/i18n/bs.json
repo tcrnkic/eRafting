@@ -70,6 +70,8 @@
       "EMAIL": "Email",
       "ADDRESS": "Adresa",
       "CITY": "Grad",
+      "PHONE": "Telefon",
+      "PHONE_HINT": "Npr. +38761123456",
       "PASSWORD": "Lozinka",
       "CONFIRM_PASSWORD": "Ponovite lozinku",
       "CURRENT_PASSWORD": "Trenutna lozinka",

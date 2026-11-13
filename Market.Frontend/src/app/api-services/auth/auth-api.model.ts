@@ -73,6 +73,8 @@ export interface RegisterCommand {
   email: string;
   /** najmanje 8 znakova, bar jedno slovo i jedna cifra (AppValidators.password) */
   password: string;
+    /** obavezan; cifre s opcionalnim "+", 8 do 15 cifara (AppValidators.phone) */
+  phone: string;
   address?: string | null;
   city?: string | null;
 }
@@ -116,6 +118,9 @@ export interface GetMeQueryDto {
   /** null = korisnik još nije unio adresu */
   address: string | null;
   city: string | null;
+    phone: string | null;
+  /** agencija vlasnika/skipera; null za admina i goste */
+  agencyId: number | null;
   isAdmin: boolean;
   isManager: boolean;
   isEmployee: boolean;

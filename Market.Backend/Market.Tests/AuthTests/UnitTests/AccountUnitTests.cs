@@ -130,5 +130,6 @@ public class AccountUnitTests
         public bool IsAdmin => false;
         public bool IsManager => false;
         public bool IsEmployee => false;
+        public int? AgencyId => null;
     }
 }

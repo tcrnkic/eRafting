@@ -31,4 +31,9 @@ public sealed class AppCurrentUser(IHttpContextAccessor httpContextAccessor)
 
     public bool IsEmployee =>
         _user?.FindFirstValue("is_employee")?.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false;
+
+    public int? AgencyId =>
+        int.TryParse(_user?.FindFirstValue("agency_id"), out var id)
+            ? id
+            : null;
 }

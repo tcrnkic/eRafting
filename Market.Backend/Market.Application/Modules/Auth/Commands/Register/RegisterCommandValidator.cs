@@ -26,7 +26,8 @@ public sealed class RegisterCommandValidator : AbstractValidator<RegisterCommand
 
         RuleFor(x => x.Password)
             .ValidPassword();
-
+        RuleFor(x => x.Phone)
+    .ValidPhone();
         RuleFor(x => x.Address)
             .MaximumLength(MarketUserEntity.Constraints.AddressMaxLength)
             .WithMessage($"Adresa može imati najviše {MarketUserEntity.Constraints.AddressMaxLength} znakova.");

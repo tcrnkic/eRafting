@@ -50,6 +50,14 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
+            <mat-label>{{ 'ACCOUNT.FIELDS.PHONE' | translate }}</mat-label>
+            <input matInput formControlName="phone" type="tel" autocomplete="tel" />
+            <mat-icon matPrefix>phone</mat-icon>
+            <mat-hint>{{ 'ACCOUNT.FIELDS.PHONE_HINT' | translate }}</mat-hint>
+            <mat-error><app-fit-field-error [control]="form.controls.phone" /></mat-error>
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline" class="full-width">
             <mat-label>{{ 'ACCOUNT.FIELDS.PASSWORD' | translate }}</mat-label>
             <input matInput formControlName="password" type="password" autocomplete="new-password" />
             <mat-icon matPrefix>lock</mat-icon>

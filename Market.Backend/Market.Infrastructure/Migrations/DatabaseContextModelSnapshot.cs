@@ -454,6 +454,9 @@ namespace Market.Infrastructure.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<int?>("AgencyId")
+                        .HasColumnType("int");
+
                     b.Property<string>("City")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -502,12 +505,18 @@ namespace Market.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Phone")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<int>("TokenVersion")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(0);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AgencyId");
 
                     b.HasIndex("Email")
                         .IsUnique()
@@ -731,6 +740,16 @@ namespace Market.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Currency");
+                });
+
+            modelBuilder.Entity("Market.Domain.Entities.Identity.MarketUserEntity", b =>
+                {
+                    b.HasOne("Market.Domain.Entities.Agencies.AgencyEntity", "Agency")
+                        .WithMany()
+                        .HasForeignKey("AgencyId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Agency");
                 });
 
             modelBuilder.Entity("Market.Domain.Entities.Identity.PasswordResetTokenEntity", b =>

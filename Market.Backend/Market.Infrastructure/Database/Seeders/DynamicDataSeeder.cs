@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+using Market.Domain.Entities.Agencies;
 using Market.Domain.Entities.Finance;
 using Market.Domain.Entities.Identity;
 
@@ -51,6 +51,7 @@ public static class DynamicDataSeeder
             Firstname = "Admin",
             Lastname = "Market",
             Email = "admin@market.local",
+            Phone = "+38761000001",
             PasswordHash = hasher.HashPassword(null!, "Admin123!"),
             Address = "Maršala Tita 1",
             City = "Sarajevo",
@@ -66,6 +67,7 @@ public static class DynamicDataSeeder
             Firstname = "Manager",
             Lastname = "Market",
             Email = "manager@market.local",
+            Phone = "+38761000002",
             PasswordHash = hasher.HashPassword(null!, "Manager123!"),
             Address = "Ferhadija 12",
             City = "Sarajevo",
@@ -81,6 +83,7 @@ public static class DynamicDataSeeder
             Firstname = "Employee",
             Lastname = "Market",
             Email = "employee@market.local",
+            Phone = "+38761000003",
             PasswordHash = hasher.HashPassword(null!, "Employee123!"),
             Address = "Kralja Tvrtka 5",
             City = "Zenica",
@@ -96,6 +99,7 @@ public static class DynamicDataSeeder
             Firstname = "Swagger",
             Lastname = "Demo",
             Email = "string",
+            Phone = "+38761000004",
             PasswordHash = hasher.HashPassword(null!, "string"),
             Address = "Zmaja od Bosne 8",
             City = "Sarajevo",
@@ -111,6 +115,7 @@ public static class DynamicDataSeeder
             Firstname = "Test",
             Lastname = "User",
             Email = "test",
+            Phone = "+38761000005",
             PasswordHash = hasher.HashPassword(null!, "test123"),
             Address = "Titova 3",
             City = "Tuzla",
@@ -127,6 +132,7 @@ public static class DynamicDataSeeder
             Firstname = "Nina",
             Lastname = "Bijedić",
             Email = "nina.bijedic@email.com",
+            Phone = "+38761000006",
             PasswordHash = hasher.HashPassword(null!, "Customer123!"),
             Address = "Bulevar Meše Selimovića 15",
             City = "Sarajevo",
@@ -142,6 +148,7 @@ public static class DynamicDataSeeder
             Firstname = "Iris",
             Lastname = "Memić",
             Email = "iris.memic@email.com",
+            Phone = "+38761000007",
             PasswordHash = hasher.HashPassword(null!, "Customer123!"),
             Address = "Kneza Domagoja 22",
             City = "Mostar",
@@ -157,6 +164,7 @@ public static class DynamicDataSeeder
             Firstname = "Azra",
             Lastname = "Smajić",
             Email = "azra.smajic@email.com",
+            Phone = "+38761000008",
             PasswordHash = hasher.HashPassword(null!, "Customer123!"),
             Address = "Trg slobode 4",
             City = "Tuzla",
@@ -178,6 +186,25 @@ public static class DynamicDataSeeder
             customer3
         );
 
+        await context.SaveChangesAsync();
+        // Demo agency: the manager is the owner, the employees are its skippers.
+        // Users are saved first so that manager.Id exists.
+        var agency = new AgencyEntity
+        {
+            Name = "Una Rafting Demo",
+            Slug = "una-rafting-demo",
+            Status = AgencyStatus.Active,
+            OwnerUserId = manager.Id,
+            DefaultCurrencyId = 1, // BAM, comes from the migration (StaticDataSeeder)
+            CreatedAtUtc = DateTime.UtcNow
+        };
+        context.Agencies.Add(agency);
+        await context.SaveChangesAsync();
+
+        manager.AgencyId = agency.Id;
+        employee.AgencyId = agency.Id;
+        dummyForSwagger.AgencyId = agency.Id;
+        dummyForTests.AgencyId = agency.Id;
         await context.SaveChangesAsync();
         Console.WriteLine("✅ Dynamic seed: demo users added.");
     }

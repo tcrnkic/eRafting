@@ -14,15 +14,15 @@ Platforma na kojoj agencije za rafting objavljuju ture, a gosti rezervišu termi
 ## Tehnologije (starter: github.com/adil-fit-ba/rs1-2026-27, folder `starter`)
 - Backend: .NET 10 Web API, Clean Architecture (Domain, Application, Infrastructure, API), CQRS (MediatR), FluentValidation, EF Core + SQL Server, JWT + refresh tokeni, `BaseEntity` sa soft delete, `ICurrencyConverter`, `IEmailSender`, `ICacheService`, upload slike.
 - Frontend: Angular 21 (NgModules), Angular Material, ngx-translate (bs/en).
-- Baza `Market2026`, API `https://localhost:7100`, frontend obično `http://localhost:4200`.
-- Struktura repozitorija: `Market.Backend/`, `Market.Frontend/`, `dokumenti/` (dijagrami .png/.jpg, screenshotovi), `db-backups/` (backup baze, zip).
+- Baza `Rafting2026`, API `https://localhost:7100`, frontend obično `http://localhost:4200`.
+- Struktura repozitorija: `Rafting.Backend/`, `Rafting.Frontend/`, `dokumenti/` (dijagrami .png/.jpg, screenshotovi), `db-backups/` (backup baze, zip).
 - Kod iz startera se ne boduje; boduje se ono što sami naprave. Ono što eRafting ne koristi iz startera briše se (Product, ProductCategory, Order, OrderItem, Promotion, UserProductFavorite, korpa, checkout).
 
 ## Lokalno okruženje
 - Treba .NET 10 SDK i **Visual Studio 2026** (ili Rider; VS 2022 ne može buildati .NET 10), Node LTS, Git, Docker Desktop.
 - SQL Server u Dockeru: `docker run -d --name erafting-sql -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Test12345!" -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest`, poslije samo `docker start erafting-sql`. Lozinka `test` iz startera je preslaba za SQL Server, pa u `appsettings.json` i `appsettings.Testing.json` stoji `Password=Test12345!`.
-- Backend: `dotnet run --project Market.API` iz `Market.Backend`. Baza se sama kreira i migrira, demo podaci se upisuju u Development.
-- Frontend: `npm install`, `npm start` u `Market.Frontend`.
+- Backend: `dotnet run --project Rafting.API` iz `Rafting.Backend`. Baza se sama kreira i migrira, demo podaci se upisuju u Development.
+- Frontend: `npm install`, `npm start` u `Rafting.Frontend`.
 - Repozitorij držati u kratkoj putanji (npr. `C:\rs1\eRafting`) i jednom `git config --global core.longpaths true`.
 
 ## Tok rada (obavezno)
@@ -32,7 +32,7 @@ Platforma na kojoj agencije za rafting objavljuju ture, a gosti rezervišu termi
 - Nikad ne radi direktno na `main`. Prije granjanja `git pull` na `main`. Drugi član pregleda PR.
 - Testiranje: ručno i unit testovi nad vlastitom logikom (testovi iz startera se ne broje).
 - Svaki novi entitet ide u dijagram klase / ER dijagram u `dokumenti`.
-- **EF migracije:** ako se sukobi `MarketDbContextModelSnapshot.cs`, ne rješavaj ručno: obriši svoju migraciju, povuci `main` i napravi je ponovo.
+- **EF migracije:** ako se sukobi `RaftingDbContextModelSnapshot.cs`, ne rješavaj ručno: obriši svoju migraciju, povuci `main` i napravi je ponovo.
 - Backup baze (zip) u `db-backups` prije predaje.
 
 ## Pravila domene (odluke tima)
@@ -53,7 +53,7 @@ Platforma na kojoj agencije za rafting objavljuju ture, a gosti rezervišu termi
 - **Temelj (zajedno, issue-i T1 do T6):** čišćenje startera, uloge i AgencyId u tokenu, Agency + Notification + kosturi TourSlot/Reservation/Payment, seeder s dvije agencije, interfejsi `IWeatherAdvisory` i `INotificationService`, layout. Radi se prvi, prije razdvajanja na tokove.
 - **Flow A:** gost, javna stranica, kalendar, rezervacija, potvrda, forma i ugovor, builder formi, uplate i valute, otkazivanje i povrat, ocjena, prijava agencije i admin panel, spajanje malih grupa.
 - **Flow B:** onboarding agencije, skiperi, dionice i ture, čamci i oprema, rasporedi i generisanje termina, kalendar vlasnika, prognoza, raspoređivanje skipera i čamaca, oprema po čamcu, logistika, dashboard skipera, zatvaranje ture i izvještaji, dashboard vlasnika.
-- **Ugovor između tokova:** tok A samo čita `TourSlot`, tok B ga puni. Rizik dana A čita samo kroz `IWeatherAdvisory`. `Reservation` i `Payment` su kosturi iz temelja; A puni logiku, B čita. Obavijesti kroz `INotificationService`. Zajedničke entitete (Agency, Notification, MarketUser) ne mijenjaj bez dogovora s kolegom.
+- **Ugovor između tokova:** tok A samo čita `TourSlot`, tok B ga puni. Rizik dana A čita samo kroz `IWeatherAdvisory`. `Reservation` i `Payment` su kosturi iz temelja; A puni logiku, B čita. Obavijesti kroz `INotificationService`. Zajedničke entitete (Agency, Notification, RaftingUser) ne mijenjaj bez dogovora s kolegom.
 - Backlog je u GitHub issue-ima (39 issue-a s pravilima, tabelama i procjenama). Kreni uvijek od issuea koji je korisnik izabrao.
 
 ## Pravila za agenta

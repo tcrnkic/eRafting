@@ -144,14 +144,16 @@
     "MENU": { "OVERVIEW": "Pregled" },
     "HOME": {
       "TITLE": "Pregled",
-      "EMPTY": "Ovdje će biti rezervacije i termini vaše agencije. Počnite dodavanjem prve ture."
+      "EMPTY_TITLE": "Počnite dodavanjem prve ture",
+      "EMPTY": "Kad dodate ture i termine, ovdje će biti rezervacije vaše agencije."
     }
   },
   "SKIPER": {
     "MENU": { "OVERVIEW": "Pregled" },
     "HOME": {
       "TITLE": "Pregled",
-      "EMPTY": "Ovdje će biti ture koje su vam dodijeljene. Kad vlasnik agencije rasporedi turu, vidjet ćete je ovdje."
+      "EMPTY_TITLE": "Nema dodijeljenih tura",
+      "EMPTY": "Kad vlasnik agencije rasporedi turu na vas, vidjet ćete je ovdje."
     }
   },
   "ADMIN_PANEL": {

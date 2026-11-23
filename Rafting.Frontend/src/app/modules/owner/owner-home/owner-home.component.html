@@ -1,4 +1,8 @@
 <section class="page">
   <h1>{{ 'OWNER.HOME.TITLE' | translate }}</h1>
-  <p class="intro">{{ 'OWNER.HOME.EMPTY' | translate }}</p>
+  <app-empty-state
+    icon="route"
+    [title]="'OWNER.HOME.EMPTY_TITLE' | translate"
+    [description]="'OWNER.HOME.EMPTY' | translate"
+  />
 </section>

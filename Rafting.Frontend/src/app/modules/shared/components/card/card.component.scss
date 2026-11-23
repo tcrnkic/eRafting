@@ -1,0 +1,40 @@
+@use '../../styles/tokens' as t;
+
+.card {
+  background: t.$card-bg;
+  border: 1px solid t.$border-soft;
+  border-radius: t.$radius-panel;
+}
+
+.card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: t.$space-2;
+  padding: t.$space-3 t.$space-3 0;
+}
+
+.card-title {
+  margin: 0;
+  font-size: t.$text-lg;
+  font-weight: 600;
+}
+
+.card-description {
+  margin: t.$space-half 0 0;
+  max-width: 60ch;
+  font-size: t.$text-sm;
+  line-height: 1.5;
+  color: t.$text-secondary;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: t.$space-1;
+}
+
+.card-body {
+  padding: t.$space-3;
+}

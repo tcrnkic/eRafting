@@ -15,6 +15,8 @@ import { CurrencySelectorComponent } from './components/currency-selector/curren
 import { StoreHeaderComponent } from './components/store-header/store-header.component';
 import { MoneyPipe } from './pipes/money.pipe';
 import { ApiUrlPipe } from './pipes/api-url.pipe';
+import { CardComponent } from './components/card/card.component';
+import { EmptyStateComponent } from './components/empty-state/empty-state.component';
 
 
 
@@ -30,6 +32,8 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
     StoreHeaderComponent,
     MoneyPipe,
         DashboardShellComponent,
+    CardComponent,
+    EmptyStateComponent,
     ApiUrlPipe
   ],
   imports: [
@@ -59,6 +63,8 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
     MoneyPipe,
     ApiUrlPipe,
       DashboardShellComponent,
+    CardComponent,
+    EmptyStateComponent,
     materialModules
   ]
 })

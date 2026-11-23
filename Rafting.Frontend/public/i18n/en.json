@@ -139,18 +139,20 @@
     "NAV_LABEL": "Glavni meni",
     "OPEN_MENU": "Otvori meni"
   },
-    "OWNER": {
+     "OWNER": {
     "MENU": { "OVERVIEW": "Overview" },
     "HOME": {
       "TITLE": "Overview",
-      "EMPTY": "Your agency's bookings and slots will show up here. Start by adding your first tour."
+      "EMPTY_TITLE": "Start by adding your first tour",
+      "EMPTY": "Once you add tours and slots, your agency's bookings will show up here."
     }
   },
   "SKIPER": {
     "MENU": { "OVERVIEW": "Overview" },
     "HOME": {
       "TITLE": "Overview",
-      "EMPTY": "Tours assigned to you will show up here. When the agency owner schedules one, you'll see it here."
+      "EMPTY_TITLE": "No tours assigned to you",
+      "EMPTY": "When the agency owner assigns you to a tour, you'll see it here."
     }
   },
   "ADMIN_PANEL": {

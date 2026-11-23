@@ -3,6 +3,7 @@
     "TITLE": "Dobrodošli u našu aplikaciju",
     "DESCRIPTION": "Ovo je primjer lokalizacije."
   },
+
   "AUTH": {
     "LOGIN": {
       "TITLE": "Prijava",
@@ -135,15 +136,20 @@
 
     }
   },
+  "SHELL": {
+    "NAV_LABEL": "Glavni meni",
+    "OPEN_MENU": "Otvori meni"
+  },
   "ADMIN_PANEL": {
     "TITLE": "Admin Panel",
     "ROLES": {
       "ADMIN": "Administrator",
-      "MANAGER": "Menadžer",
-      "EMPLOYEE": "Zaposlenik"
+      "MANAGER": "Vlasnik Agencije",
+      "EMPLOYEE": "Skiper",
+      "SYSTEM": "Sistem"
     },
     "MENU": {
-      "SYSTEM": "SISTEM",
+      "SYSTEM": "Sistem",
       "SETTINGS": "Postavke",
       "MY_PROFILE": "Moj profil",
       "LOGOUT": "Odjava",

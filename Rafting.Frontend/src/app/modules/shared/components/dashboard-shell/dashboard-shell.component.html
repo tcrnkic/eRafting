@@ -1,0 +1,72 @@
+<mat-sidenav-container class="shell">
+  <mat-sidenav
+    class="nav"
+    [mode]="compact() ? 'over' : 'side'"
+    [opened]="!compact() || menuOpen()"
+    (closedStart)="menuOpen.set(false)"
+  >
+    <div class="nav-inner">
+      <a class="brand" routerLink="/">eRafting</a>
+
+      <div class="account">
+        <span class="account-email">{{ auth.currentUser()?.email }}</span>
+        <span class="account-role">{{ roleKey | translate }}</span>
+      </div>
+
+      <nav class="menu" [attr.aria-label]="'SHELL.NAV_LABEL' | translate">
+        @for (section of sections; track $index) {
+          <div class="menu-section">
+            @if (section.titleKey) {
+              <p class="menu-title">{{ section.titleKey | translate }}</p>
+            }
+            @for (item of section.items; track item.route) {
+              <a
+                class="menu-link"
+                [routerLink]="item.route"
+                routerLinkActive="is-active"
+                (click)="menuOpen.set(false)"
+              >
+                <mat-icon>{{ item.icon }}</mat-icon>
+                <span>{{ item.labelKey | translate }}</span>
+              </a>
+            }
+          </div>
+        }
+      </nav>
+
+      <div class="nav-footer">
+        <button mat-button class="lang" [matMenuTriggerFor]="langMenu">
+          {{ currentLanguageName }}
+          <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #langMenu="matMenu">
+          @for (lang of languages; track lang.code) {
+            <button mat-menu-item (click)="switchLanguage(lang.code)">
+              <span>{{ lang.name }}</span>
+              @if (currentLang === lang.code) {
+                <mat-icon>check</mat-icon>
+              }
+            </button>
+          }
+        </mat-menu>
+
+        <a class="menu-link" routerLink="/auth/logout">
+          <mat-icon>logout</mat-icon>
+          <span>{{ 'ADMIN_PANEL.MENU.LOGOUT' | translate }}</span>
+        </a>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    @if (compact()) {
+      <header class="topbar">
+        <button mat-icon-button (click)="menuOpen.set(true)" [attr.aria-label]="'SHELL.OPEN_MENU' | translate">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="topbar-brand">eRafting</span>
+      </header>
+    }
+    <ng-content />
+  </mat-sidenav-content>
+</mat-sidenav-container>

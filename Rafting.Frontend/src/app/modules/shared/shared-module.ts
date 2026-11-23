@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DashboardShellComponent } from './components/dashboard-shell/dashboard-shell.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FitPaginatorBarComponent} from './components/fit-paginator-bar/fit-paginator-bar.component';
@@ -19,6 +20,7 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
 
 @NgModule({
   declarations: [
+
     FitPaginatorBarComponent,
     FitConfirmDialogComponent,
     FitLoadingBarComponent,
@@ -27,6 +29,7 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
     CurrencySelectorComponent,
     StoreHeaderComponent,
     MoneyPipe,
+        DashboardShellComponent,
     ApiUrlPipe
   ],
   imports: [
@@ -42,6 +45,7 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
     DialogHelperService
   ],
   exports:[
+  
     FitPaginatorBarComponent,
     CommonModule,
     ReactiveFormsModule,
@@ -54,6 +58,7 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
     StoreHeaderComponent,
     MoneyPipe,
     ApiUrlPipe,
+      DashboardShellComponent,
     materialModules
   ]
 })

@@ -28,4 +28,4 @@ export class CurrentUserService {
     if (user.isEmployee) return '/skiper';
     return '/';
   }
-}
+  }

@@ -1,12 +1,13 @@
-// Teget paleta
-$primary-color: #4976b5;
-$primary-light: #6b96d1;
-$primary-lighter: #e8f0f9;
-$primary-dark: #3a5e91;
+@use '../../styles/tokens' as t;
 
-$text-primary: #2c3e50;
-$text-secondary: #546e7a;
-$border-color: rgba(73, 118, 181, 0.15);
+$primary-color: t.$primary;
+$primary-light: t.$primary-light;
+$primary-lighter: t.$primary-bg;
+$primary-dark: t.$primary-dark;
+
+$text-primary: t.$text-primary;
+$text-secondary: t.$text-secondary;
+$border-color: t.$border-soft;
 $hover-bg: rgba(73, 118, 181, 0.08);
 
 .paginator-bar {

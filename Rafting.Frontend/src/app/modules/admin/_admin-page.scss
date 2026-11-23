@@ -2,15 +2,15 @@
 // Isti stil kao postojeće stranice (proizvodi, narudžbe), ali na jednom mjestu:
 //   @use '../../admin-page';      .container { @include admin-page.container; }
 // Mixini (a ne gotove klase) → u CSS komponente ulazi samo ono što komponenta koristi.
+@use '../shared/styles/tokens' as t;
 
-$primary-color: #4976b5;
-$primary-dark: #3a5e91;
-$primary-lighter: #e8f0f9;
-$text-primary: #2c3e50;
-$text-secondary: #546e7a;
-$border-color: rgba(73, 118, 181, 0.15);
-$card-shadow: 0 2px 8px rgba(73, 118, 181, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
-
+$primary-color: t.$primary;
+$primary-dark: t.$primary-dark;
+$primary-lighter: t.$primary-bg;
+$text-primary: t.$text-primary;
+$text-secondary: t.$text-secondary;
+$border-color: t.$border-soft;
+$card-shadow: t.$shadow-card;
 @mixin container($max-width: 1200px) {
   padding: 24px;
   max-width: $max-width;

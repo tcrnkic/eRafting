@@ -1,21 +1,21 @@
 @use 'sass:color';
 
 // src/app/modules/shared/components/fit-confirm-dialog/fit-fit-confirm-dialog.component.scss
+@use '../../styles/tokens' as t;
 
-// Glavne boje - teget paleta #4976b5
-$primary-color: #4976b5;
-$primary-light: #6b96d1;
-$primary-lighter: #e8f0f9;
-$primary-dark: #3a5e91;
+$primary-color: t.$primary;
+$primary-light: t.$primary-light;
+$primary-lighter: t.$primary-bg;
+$primary-dark: t.$primary-dark;
 
-$success-color: #66bb6a;
-$error-color: #ef5350;
-$warning-color: #ffa726;
-$info-color: #42a5f5;
+$success-color: t.$success;
+$error-color: t.$error;
+$warning-color: t.$warning;
+$info-color: t.$info;
 
-$text-primary: #2c3e50;
-$text-secondary: #546e7a;
-$border-color: rgba(73, 118, 181, 0.15);
+$text-primary: t.$text-primary;
+$text-secondary: t.$text-secondary;
+$border-color: t.$border-soft;
 
 .confirm-dialog {
   padding: 8px;

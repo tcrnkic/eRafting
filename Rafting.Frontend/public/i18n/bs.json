@@ -3,6 +3,7 @@
     "TITLE": "Dobrodošli u našu aplikaciju",
     "DESCRIPTION": "Ovo je primjer lokalizacije."
   },
+
   "AUTH": {
     "LOGIN": {
       "TITLE": "Prijava",
@@ -135,15 +136,47 @@
 
     }
   },
+  "SHELL": {
+    "NAV_LABEL": "Glavni meni",
+    "OPEN_MENU": "Otvori meni"
+  },
+    "OWNER": {
+    "MENU": { "OVERVIEW": "Pregled" },
+    "HOME": {
+      "TITLE": "Pregled",
+      "EMPTY_TITLE": "Počnite dodavanjem prve ture",
+      "EMPTY": "Kad dodate ture i termine, ovdje će biti rezervacije vaše agencije."
+    }
+  },
+  "SKIPER": {
+    "MENU": { "OVERVIEW": "Pregled" },
+    "HOME": {
+      "TITLE": "Pregled",
+      "EMPTY_TITLE": "Nema dodijeljenih tura",
+      "EMPTY": "Kad vlasnik agencije rasporedi turu na vas, vidjet ćete je ovdje."
+    }
+  },
+    "CALENDAR": {
+    "LABEL": "Kalendar termina",
+    "PREVIOUS": "Prethodni mjesec",
+    "NEXT": "Sljedeći mjesec",
+    "TODAY": "Danas",
+    "CONDITION": {
+      "GOOD": "Povoljno",
+      "CAUTION": "Oprez",
+      "CLOSED": "Crveni dan"
+    }
+  },
   "ADMIN_PANEL": {
     "TITLE": "Admin Panel",
     "ROLES": {
       "ADMIN": "Administrator",
-      "MANAGER": "Menadžer",
-      "EMPLOYEE": "Zaposlenik"
+      "MANAGER": "Vlasnik Agencije",
+      "EMPLOYEE": "Skiper",
+      "SYSTEM": "Sistem"
     },
     "MENU": {
-      "SYSTEM": "SISTEM",
+      "SYSTEM": "Sistem",
       "SETTINGS": "Postavke",
       "MY_PROFILE": "Moj profil",
       "LOGOUT": "Odjava",

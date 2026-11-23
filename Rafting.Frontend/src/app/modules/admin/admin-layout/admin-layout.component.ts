@@ -1,35 +1,21 @@
-import { Component, inject } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { AuthFacadeService } from '../../../core/services/auth/auth-facade.service';
+import { Component } from '@angular/core';
+import { NavSection } from '../../shared/models/nav-item.model';
 
+/** Layout admina platforme: stavke menija, a izgled je u DashboardShellComponent. */
 @Component({
   selector: 'app-admin-layout',
   standalone: false,
-  templateUrl: './admin-layout.component.html',
-  styleUrl: './admin-layout.component.scss'
+  templateUrl: './admin-layout.component.html'
 })
 export class AdminLayoutComponent {
-  private translate = inject(TranslateService);
-  auth = inject(AuthFacadeService);
-
-  currentLang: string;
-
-  languages = [
-    { code: 'bs', name: 'Bosanski', flag: '🇧🇦' },
-    { code: 'en', name: 'English', flag: '🇬🇧' }
+  readonly sections: NavSection[] = [
+    {
+      titleKey: 'ADMIN_PANEL.MENU.SYSTEM',
+      items: [
+        { icon: 'currency_exchange', labelKey: 'ADMIN_PANEL.MENU.EXCHANGE_RATES', route: '/admin/exchange-rates' },
+        { icon: 'settings', labelKey: 'ADMIN_PANEL.MENU.SETTINGS', route: '/admin/settings' },
+        { icon: 'manage_accounts', labelKey: 'ADMIN_PANEL.MENU.MY_PROFILE', route: '/admin/profile' }
+      ]
+    }
   ];
-
-  constructor() {
-    this.currentLang = this.translate.currentLang || 'bs';
-  }
-
-  switchLanguage(langCode: string): void {
-    this.currentLang = langCode;
-    this.translate.use(langCode);
-    localStorage.setItem('language', langCode);
-  }
-
-  getCurrentLanguage() {
-    return this.languages.find(lang => lang.code === this.currentLang);
-  }
 }

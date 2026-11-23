@@ -1,0 +1,33 @@
+@use '../../styles/tokens' as t;
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: t.$space-4 t.$space-3;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  color: t.$text-muted;
+}
+
+.empty-title {
+  margin: t.$space-2 0 0;
+  font-size: t.$text-lg;
+  font-weight: 600;
+}
+
+.empty-description {
+  margin: t.$space-1 0 0;
+  max-width: 44ch;
+  line-height: 1.5;
+  color: t.$text-secondary;
+}
+
+.empty-action:not(:empty) {
+  margin-top: t.$space-3;
+}

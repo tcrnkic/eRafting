@@ -1,4 +1,4 @@
-$primary-blue: #4a90e2;
+@use '../../styles/tokens' as t;
 
 .store-header {
   position: sticky;
@@ -7,30 +7,30 @@ $primary-blue: #4a90e2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  gap: t.$space-2;
+  padding: 12px t.$space-3;
+  background: t.$card-bg;
+  border-bottom: 1px solid t.$border-soft;
 
   @media (max-width: 600px) {
-    padding: 8px 12px;
-    gap: 8px;
+    padding: t.$space-1 12px;
+    gap: t.$space-1;
   }
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: $primary-blue;
-  font-size: 20px;
+  gap: t.$space-1;
+  color: t.$primary;
+  font-size: t.$text-lg;
   font-weight: 700;
   text-decoration: none;
 
   mat-icon {
-    font-size: 28px;
     width: 28px;
     height: 28px;
+    font-size: 28px;
   }
 
   @media (max-width: 600px) {
@@ -43,10 +43,10 @@ $primary-blue: #4a90e2;
 .store-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: t.$space-half;
 
   .active {
-    color: $primary-blue;
+    color: t.$primary;
   }
 
   // na uskom ekranu ostaju samo ikone
@@ -67,7 +67,7 @@ $primary-blue: #4a90e2;
 }
 
 .account-email {
-  padding: 8px 16px;
-  font-size: 13px;
-  color: #666666;
+  padding: t.$space-1 t.$space-2;
+  font-size: t.$text-sm;
+  color: t.$text-secondary;
 }

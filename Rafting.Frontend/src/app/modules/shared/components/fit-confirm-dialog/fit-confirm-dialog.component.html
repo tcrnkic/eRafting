@@ -21,7 +21,7 @@
       <button
         *ngIf="button.type === 'cancel' || button.type === 'no' || button.type === 'close'"
         mat-stroked-button
-        [color]="button.color || 'primary'"
+       
         (click)="onButtonClick(button.type, button.result)"
         class="dialog-button"
       >
@@ -33,7 +33,7 @@
       <button
         *ngIf="button.type !== 'cancel' && button.type !== 'no' && button.type !== 'close'"
         mat-raised-button
-        [color]="button.color || (button.type === 'delete' ? 'warn' : 'primary')"
+                [class.is-danger]="button.color === 'warn' || button.type === 'delete'"
         (click)="onButtonClick(button.type, button.result)"
         class="dialog-button"
       >

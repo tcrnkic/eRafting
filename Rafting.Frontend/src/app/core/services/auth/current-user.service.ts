@@ -18,12 +18,14 @@ export class CurrentUserService {
     return this.auth.currentUser();
   }
 
-  /** Pravilo: admin > ostali → client */
+  /** Početna stranica po ulozi: admin > vlasnik > skiper > gost */
   getDefaultRoute(): string {
     const user = this.snapshot;
     if (!user) return '/auth/login';
 
     if (user.isAdmin) return '/admin';
-    return '/client';
+    if (user.isManager) return '/owner';
+    if (user.isEmployee) return '/skiper';
+    return '/';
   }
-}
+  }

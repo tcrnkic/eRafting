@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { DialogConfig, DialogType, DialogButton, DialogResult } from '../models/dialog-config.model';
 import {FitConfirmDialogComponent} from '../components/fit-confirm-dialog/fit-confirm-dialog.component';
@@ -150,7 +150,35 @@ export class DialogHelperService {
       ]
     });
   }
-
+  /**
+   * Potvrda za radnju koja se ne može poništiti (otkazivanje termina, povrat novca...).
+   * Dugme za potvrdu nosi naziv radnje ("Otkaži termin"), a ne općenito "Da" ili "U redu".
+   * Dijalog se ne zatvara klikom pored. Emituje true samo ako korisnik potvrdi.
+   *
+   *   dialogs.confirmIrreversible('SLOTS.CANCEL.TITLE', 'SLOTS.CANCEL.MESSAGE',
+   *                               'SLOTS.CANCEL.CONFIRM', { date })
+   *     .subscribe(confirmed => { if (confirmed) { ... } });
+   */
+  confirmIrreversible(
+    titleKey: string,
+    messageKey: string,
+    confirmLabelKey: string,
+    params?: any
+  ): Observable<boolean> {
+    return this.open({
+      type: DialogType.WARNING,
+      titleKey,
+      messageKey,
+      titleParams: params,
+      messageParams: params,
+      icon: 'warning',
+      disableClose: true,
+      buttons: [
+        { type: DialogButton.CANCEL, translationKey: 'DIALOGS.BUTTONS.BACK' },
+        { type: DialogButton.OK, translationKey: confirmLabelKey, color: 'warn' }
+      ]
+    }).pipe(map(result => result?.button === DialogButton.OK));
+  }
   /**
    * Shows unsaved changes confirmation
    */

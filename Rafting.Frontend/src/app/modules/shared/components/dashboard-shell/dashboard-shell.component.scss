@@ -1,0 +1,146 @@
+@use '../../styles/tokens' as t;
+
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.shell {
+  height: 100%;
+  background: t.$page-bg;
+}
+
+.nav {
+  --mat-sidenav-container-background-color: #{t.$nav-bg};
+  --mat-sidenav-container-text-color: #{t.$nav-text};
+  --mat-sidenav-container-shape: 0;
+  --mat-sidenav-container-divider-color: transparent;
+  width: t.$sidebar-width;
+}
+
+.nav-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: t.$space-3 t.$space-2 t.$space-2;
+  box-sizing: border-box;
+}
+
+.brand {
+  padding: 0 t.$space-1;
+  font-family: t.$font-display;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: t.$nav-text-active;
+  text-decoration: none;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: t.$space-3 0 t.$space-2;
+  padding: t.$space-2 t.$space-1;
+  border-top: 1px solid t.$nav-border;
+  border-bottom: 1px solid t.$nav-border;
+}
+
+.account-email {
+  font-size: t.$text-sm;
+  color: t.$nav-text-active;
+  overflow-wrap: anywhere;
+}
+
+.account-role {
+  font-size: 13px;
+  color: t.$nav-text-muted;
+}
+
+.menu {
+  flex: 1;
+}
+
+.menu-section + .menu-section {
+  margin-top: t.$space-2;
+}
+
+.menu-title {
+  margin: 0 0 t.$space-half;
+  padding: 0 t.$space-1;
+  font-size: 13px;
+  font-weight: 500;
+  color: t.$nav-text-muted;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px t.$space-1 + 4px;
+  border-radius: t.$radius-control;
+  font-size: t.$text-sm;
+  font-weight: 500;
+  color: t.$nav-text;
+  text-decoration: none;
+  transition: background-color 120ms ease;
+
+  mat-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: t.$nav-hover-bg;
+  }
+
+  &.is-active {
+    background: t.$nav-active-bg;
+    color: t.$nav-text-active;
+    font-weight: 600;
+  }
+
+  &:focus-visible {
+    outline: 2px solid t.$nav-text-active;
+    outline-offset: -2px;
+  }
+}
+
+.nav-footer {
+  display: flex;
+  flex-direction: column;
+  gap: t.$space-half;
+  margin-top: t.$space-2;
+  padding-top: t.$space-2;
+  border-top: 1px solid t.$nav-border;
+}
+
+.lang {
+  --mat-button-text-label-text-color: #{t.$nav-text};
+  justify-content: flex-start;
+}
+
+.content {
+  background: t.$page-bg;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: t.$space-1;
+  height: 56px;
+  padding: 0 t.$space-1;
+  background: t.$card-bg;
+  border-bottom: 1px solid t.$border;
+}
+
+.topbar-brand {
+  font-family: t.$font-display;
+  font-size: t.$text-lg;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}

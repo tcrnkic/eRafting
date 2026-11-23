@@ -1,32 +1,32 @@
 // Table Skeleton Component Styles
 // Matches your existing table card design
 
-$primary-lighter: #e8f0f9;
-$border-color: rgba(73, 118, 181, 0.15);
-$skeleton-bg: #e0e0e0;
+@use '../../styles/tokens' as t;
+
+$primary-lighter: t.$primary-bg;
+$border-color: t.$border-soft;
+$skeleton-bg: #e3e9e8;
 
 .skeleton-table {
-  background: white;
-  border-radius: 16px;
+  background: t.$card-bg;
+  border-radius: t.$radius-panel;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(73, 118, 181, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
   border: 1px solid $border-color;
 
   .skeleton-header {
     display: flex;
-    gap: 16px;
-    padding: 20px 16px;
-    background: linear-gradient(135deg, $primary-lighter 0%, #f5f9fd 100%);
-    border-bottom: 2px solid rgba(73, 118, 181, 0.15);
+    gap: t.$space-2;
+    padding: 20px t.$space-2;
+    background: t.$hover-bg;
+    border-bottom: 1px solid $border-color;
 
     .skeleton-cell {
       flex: 1;
       height: 24px;
       border-radius: 4px;
-      background: rgba(73, 118, 181, 0.1);
+      background: $skeleton-bg;
     }
   }
-
   .skeleton-row {
     display: flex;
     gap: 16px;

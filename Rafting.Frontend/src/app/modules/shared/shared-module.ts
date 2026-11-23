@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DashboardShellComponent } from './components/dashboard-shell/dashboard-shell.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FitPaginatorBarComponent} from './components/fit-paginator-bar/fit-paginator-bar.component';
@@ -14,11 +15,14 @@ import { CurrencySelectorComponent } from './components/currency-selector/curren
 import { StoreHeaderComponent } from './components/store-header/store-header.component';
 import { MoneyPipe } from './pipes/money.pipe';
 import { ApiUrlPipe } from './pipes/api-url.pipe';
-
+import { CardComponent } from './components/card/card.component';
+import { EmptyStateComponent } from './components/empty-state/empty-state.component';
+import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
 
 
 @NgModule({
   declarations: [
+
     FitPaginatorBarComponent,
     FitConfirmDialogComponent,
     FitLoadingBarComponent,
@@ -27,6 +31,10 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
     CurrencySelectorComponent,
     StoreHeaderComponent,
     MoneyPipe,
+        DashboardShellComponent,
+    CardComponent,
+    EmptyStateComponent,
+    CalendarViewComponent,
     ApiUrlPipe
   ],
   imports: [
@@ -42,6 +50,7 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
     DialogHelperService
   ],
   exports:[
+  
     FitPaginatorBarComponent,
     CommonModule,
     ReactiveFormsModule,
@@ -54,6 +63,10 @@ import { ApiUrlPipe } from './pipes/api-url.pipe';
     StoreHeaderComponent,
     MoneyPipe,
     ApiUrlPipe,
+      DashboardShellComponent,
+    CardComponent,
+    EmptyStateComponent,
+    CalendarViewComponent,
     materialModules
   ]
 })

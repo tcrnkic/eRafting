@@ -29,10 +29,10 @@ const routes: Routes = [
         component: MyProfileComponent,
       },
 
-      // default admin route → /admin/products
+          // default admin route → /admin/exchange-rates (dashboard admina dolazi u toku A12)
       {
         path: '',
-        redirectTo: 'products',
+        redirectTo: 'exchange-rates',
         pathMatch: 'full',
       },
     ],

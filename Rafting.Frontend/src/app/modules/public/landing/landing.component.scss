@@ -1,14 +1,13 @@
 // Početna (landing) stranica
+@use '../../shared/styles/tokens' as t;
 
-// === VARIJABLE ===
-$primary-blue: #4a90e2;
-$light-blue: #e8f4fd;
-$lighter-blue: #f5faff;
-$dark-blue: #2e5c8a;
-$text-dark: #1a1a1a;
-$text-light: #666666;
-$white: #ffffff;
-
+$primary-blue: t.$primary;
+$light-blue: t.$primary-bg;
+$lighter-blue: t.$page-bg;
+$dark-blue: t.$primary-dark;
+$text-dark: t.$text-primary;
+$text-light: t.$text-secondary;
+$white: t.$card-bg;
 // === MIXINS ===
 @mixin section-padding {
   padding: 80px 20px;
@@ -77,7 +76,7 @@ $white: #ffffff;
     right: -20%;
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(11, 110, 110, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: pulse 8s ease-in-out infinite;
   }
@@ -176,12 +175,12 @@ $white: #ffffff;
   padding: 0 32px;
   font-size: 16px;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 4px 12px rgba(11, 110, 110, 0.3);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    box-shadow: 0 6px 20px rgba(11, 110, 110, 0.4);
   }
 
   mat-icon {
@@ -334,7 +333,7 @@ $white: #ffffff;
   font-size: 48px;
   width: 48px;
   height: 48px;
-  color: #c62828;
+  color: #b3261e;
 }
 
 // === CTA SECTION ===
@@ -372,12 +371,12 @@ $white: #ffffff;
   padding: 0 48px;
   font-size: 18px;
   font-weight: 600;
-  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 8px 24px rgba(11, 110, 110, 0.3);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(74, 144, 226, 0.4);
+    box-shadow: 0 12px 32px rgba(11, 110, 110, 0.4);
   }
 
   mat-icon {

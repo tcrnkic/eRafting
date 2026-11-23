@@ -1,15 +1,17 @@
+@use '../../styles/tokens' as t;
+
 .currency-button {
   min-width: 0;
 
   mat-icon {
-    margin-right: 4px;
+    margin-right: t.$space-half;
   }
 }
 
 .currency-option {
-  margin-right: 8px;
+  margin-right: t.$space-1;
 }
 
 .check-icon {
-  color: #4a90e2;
+  color: t.$primary;
 }

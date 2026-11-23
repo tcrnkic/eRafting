@@ -1,20 +1,22 @@
+@use '../../shared/styles/tokens' as t;
+
 .admin-settings {
-  padding: 24px;
+  padding: t.$space-3;
   box-sizing: border-box;
 }
 
 .settings-card {
   max-width: 720px;
-  border-radius: 16px;
+  border-radius: t.$radius-panel;
 }
 
 .avatar-icon {
-  font-size: 40px;
   width: 40px;
   height: 40px;
-  color: #4a90e2;
+  font-size: 40px;
+  color: t.$primary;
 }
 
 mat-card-content p {
-  margin: 16px 0 0;
+  margin: t.$space-2 0 0;
 }

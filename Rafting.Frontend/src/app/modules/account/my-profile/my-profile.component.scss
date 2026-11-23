@@ -1,9 +1,10 @@
 // Stranica se prikazuje u admin layoutu (/admin/profile) i u klijentskom (/client/profile),
 // pa ima neutralan izgled: naslov + dvije Material kartice, bez stilova jednog od ta dva dijela.
 
-$primary-blue: #4a90e2;
-$text-light: #666666;
+@use '../../shared/styles/tokens' as t;
 
+$primary-blue: t.$primary;
+$text-light: t.$text-secondary;
 .profile-page {
   max-width: 1100px;
   margin: 0 auto;
@@ -15,7 +16,7 @@ $text-light: #666666;
   align-items: center;
   gap: 12px;
   margin: 0 0 24px;
-  font-size: 28px;
+  font-size: t.$text-xl;
   font-weight: 700;
 
   mat-icon {
@@ -42,9 +43,9 @@ $text-light: #666666;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: t.$radius-control;
   background: $primary-blue;
-  color: #ffffff;
+  color: #fff;
 }
 
 mat-card-content {
@@ -73,17 +74,16 @@ mat-card-content {
   display: flex;
   justify-content: flex-end;
 }
-
 .error-banner {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 16px;
-  padding: 12px 16px;
-  border: 1px solid #ef9a9a;
-  border-radius: 12px;
-  background: #ffebee;
-  color: #c62828;
+  margin-bottom: t.$space-2;
+  padding: 12px t.$space-2;
+  border: 1px solid t.$error;
+  border-radius: t.$radius-control;
+  background: t.$error-bg;
+  color: t.$error;
 }
 
 .state-card {
@@ -100,5 +100,5 @@ mat-card-content {
   font-size: 56px;
   width: 56px;
   height: 56px;
-  color: #c62828;
+  color: t.$error;
 }

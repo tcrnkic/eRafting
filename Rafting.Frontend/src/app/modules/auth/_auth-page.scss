@@ -9,18 +9,18 @@
 //
 // Za razliku od _admin-page.scss, ovi mixini ispisuju GOTOVA PRAVILA za klase iz templatea
 // (.auth-container, .auth-card, ...): auth stranice dijele cijeli okvir, a ne pojedinačne dijelove.
+@use '../shared/styles/tokens' as t;
 
-// === VARIJABLE (iste kao landing page) ===
-$primary-blue: #4a90e2;
-$light-blue: #e8f4fd;
-$lighter-blue: #f5faff;
-$dark-blue: #2e5c8a;
-$accent-blue: #64b5f6;
-$text-dark: #1a1a1a;
-$text-light: #666666;
-$white: #ffffff;
-$error-red: #f44336;
-$success-green: #4caf50;
+$primary-blue: t.$primary;
+$light-blue: t.$primary-bg;
+$lighter-blue: t.$page-bg;
+$dark-blue: t.$primary-dark;
+$accent-blue: t.$primary-light;
+$text-dark: t.$text-primary;
+$text-light: t.$text-secondary;
+$white: t.$card-bg;
+$error-red: t.$error;
+$success-green: t.$success;
 
 @mixin page($max-width: 480px) {
   // === ANIMATIONS ===
@@ -100,7 +100,7 @@ $success-green: #4caf50;
     &.shape-1 {
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(74, 144, 226, 0.3) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(11, 110, 110, 0.3) 0%, transparent 70%);
       top: -150px;
       left: -150px;
       animation: float 20s ease-in-out infinite;
@@ -109,7 +109,7 @@ $success-green: #4caf50;
     &.shape-2 {
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(100, 181, 246, 0.25) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(62, 156, 152, 0.25) 0%, transparent 70%);
       bottom: -100px;
       right: -100px;
       animation: float 25s ease-in-out infinite reverse;
@@ -118,7 +118,7 @@ $success-green: #4caf50;
     &.shape-3 {
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, rgba(46, 92, 138, 0.2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(8, 79, 82, 0.2) 0%, transparent 70%);
       top: 50%;
       left: 50%;
       animation: float 30s ease-in-out infinite;
@@ -176,7 +176,7 @@ $success-green: #4caf50;
     padding: 40px;
     animation: slideInUp 0.6s ease-out 0.2s both;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
-    border: 1px solid rgba(74, 144, 226, 0.1);
+    border: 1px solid rgba(11, 110, 110, 0.1);
 
     @media (max-width: 480px) {
       padding: 32px 24px;
@@ -236,7 +236,7 @@ $success-green: #4caf50;
         .mdc-notched-outline__leading,
         .mdc-notched-outline__notch,
         .mdc-notched-outline__trailing {
-          border-color: rgba(74, 144, 226, 0.2);
+          border-color: rgba(11, 110, 110, 0.2);
           transition: all 0.3s ease;
         }
       }
@@ -244,7 +244,7 @@ $success-green: #4caf50;
       .mdc-text-field--focused {
         .mat-mdc-text-field-wrapper {
           background-color: $white;
-          box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+          box-shadow: 0 0 0 4px rgba(11, 110, 110, 0.1);
         }
 
         .mdc-notched-outline__leading,
@@ -320,12 +320,12 @@ $success-green: #4caf50;
     font-size: 16px;
     font-weight: 600;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    box-shadow: 0 4px 12px rgba(11, 110, 110, 0.3);
     transition: all 0.3s ease;
 
     &:not(:disabled):hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+      box-shadow: 0 8px 20px rgba(11, 110, 110, 0.4);
     }
 
     &:disabled {
@@ -368,7 +368,7 @@ $success-green: #4caf50;
 
     &:hover {
       color: $primary-blue;
-      background: rgba(74, 144, 226, 0.1);
+      background: rgba(11, 110, 110, 0.1);
 
       mat-icon {
         transform: translateX(-4px);
@@ -430,7 +430,7 @@ $success-green: #4caf50;
     &::after {
       content: '';
       flex: 1;
-      border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+      border-bottom: 1px solid rgba(11, 110, 110, 0.2);
     }
 
     span {

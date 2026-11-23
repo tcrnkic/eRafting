@@ -17,7 +17,7 @@ import { MoneyPipe } from './pipes/money.pipe';
 import { ApiUrlPipe } from './pipes/api-url.pipe';
 import { CardComponent } from './components/card/card.component';
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
-
+import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
 
 
 @NgModule({
@@ -34,6 +34,7 @@ import { EmptyStateComponent } from './components/empty-state/empty-state.compon
         DashboardShellComponent,
     CardComponent,
     EmptyStateComponent,
+    CalendarViewComponent,
     ApiUrlPipe
   ],
   imports: [
@@ -65,6 +66,7 @@ import { EmptyStateComponent } from './components/empty-state/empty-state.compon
       DashboardShellComponent,
     CardComponent,
     EmptyStateComponent,
+    CalendarViewComponent,
     materialModules
   ]
 })

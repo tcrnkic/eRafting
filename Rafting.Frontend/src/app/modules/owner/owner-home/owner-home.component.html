@@ -1,8 +1,27 @@
 <section class="page">
   <h1>{{ 'OWNER.HOME.TITLE' | translate }}</h1>
+
   <app-empty-state
     icon="route"
     [title]="'OWNER.HOME.EMPTY_TITLE' | translate"
     [description]="'OWNER.HOME.EMPTY' | translate"
   />
+
+  <!-- PRIVREMENO: probni prikaz zajedničkih komponenti, briše se u koraku 10 -->
+  <div class="demo">
+    <app-card title="Probni prikaz" description="Služi samo za provjeru zajedničkih komponenti.">
+      <button cardActions mat-stroked-button color="warn" type="button" (click)="cancelDemo()">
+        {{ 'OWNER.DEMO.CANCEL_BUTTON' | translate }}
+      </button>
+
+      <app-calendar-view [days]="demoDays" (dayClick)="onDayClick($event)" />
+
+      @if (selectedDay()) {
+        <p>{{ 'OWNER.DEMO.SELECTED' | translate: { date: selectedDay() } }}</p>
+      }
+      @if (demoResult()) {
+        <p>{{ demoResult() }}</p>
+      }
+    </app-card>
+  </div>
 </section>

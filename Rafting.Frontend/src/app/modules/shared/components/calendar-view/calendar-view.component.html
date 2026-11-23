@@ -1,0 +1,74 @@
+<section class="calendar" [attr.aria-label]="'CALENDAR.LABEL' | translate">
+  <header class="head">
+    <h2 class="title" aria-live="polite">{{ viewMonth() | date: 'LLLL yyyy' }}</h2>
+    <div class="nav">
+      <button mat-stroked-button type="button" (click)="goToday()">
+        {{ 'CALENDAR.TODAY' | translate }}
+      </button>
+      <button mat-icon-button type="button" (click)="shift(-1)" [attr.aria-label]="'CALENDAR.PREVIOUS' | translate">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button mat-icon-button type="button" (click)="shift(1)" [attr.aria-label]="'CALENDAR.NEXT' | translate">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </header>
+
+  <div class="weekdays" aria-hidden="true">
+    @for (d of weekdays; track $index) {
+      <div class="weekday">{{ d | date: 'EEE' }}</div>
+    }
+  </div>
+
+  @for (week of weeks(); track week[0].key) {
+    <div class="week">
+      @for (cell of week; track cell.key) {
+        @let day = dayMap().get(cell.key);
+        @if (cell.inMonth) {
+          <button
+            type="button"
+            class="cell"
+            [class.is-today]="cell.isToday"
+            [class.cond-good]="day?.condition === 'good'"
+            [class.cond-caution]="day?.condition === 'caution'"
+            [class.cond-closed]="day?.condition === 'closed'"
+            [attr.aria-label]="ariaLabel(cell, day)"
+            [attr.aria-current]="cell.isToday ? 'date' : null"
+            (click)="dayClick.emit(cell.key)"
+          >
+            <span class="day-number">{{ cell.date.getDate() }}</span>
+
+            @if (day?.condition === 'caution' || day?.condition === 'closed') {
+              <span class="condition-label">
+                {{ 'CALENDAR.CONDITION.' + day!.condition!.toUpperCase() | translate }}
+              </span>
+            }
+
+            @if (day?.events?.length) {
+              @for (e of day!.events!.slice(0, 2); track $index) {
+                <span class="event">
+                  @if (e.time) { <b>{{ e.time }}</b> }
+                  {{ e.title }}
+                </span>
+              }
+              @if (day!.events!.length > 2) {
+                <span class="more">+{{ day!.events!.length - 2 }}</span>
+              }
+              <span class="event-count">{{ day!.events!.length }}</span>
+            }
+          </button>
+        } @else {
+          <div class="cell cell-outside" aria-hidden="true">
+            <span class="day-number">{{ cell.date.getDate() }}</span>
+          </div>
+        }
+      }
+    </div>
+  }
+
+  <footer class="legend">
+    <span class="legend-item"><i class="swatch swatch-good"></i>{{ 'CALENDAR.CONDITION.GOOD' | translate }}</span>
+    <span class="legend-item"><i class="swatch swatch-caution"></i>{{ 'CALENDAR.CONDITION.CAUTION' | translate }}</span>
+    <span class="legend-item"><i class="swatch swatch-closed"></i>{{ 'CALENDAR.CONDITION.CLOSED' | translate }}</span>
+  </footer>
+</section>

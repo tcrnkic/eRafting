@@ -146,6 +146,15 @@
       "TITLE": "Pregled",
       "EMPTY_TITLE": "Počnite dodavanjem prve ture",
       "EMPTY": "Kad dodate ture i termine, ovdje će biti rezervacije vaše agencije."
+    },
+        "DEMO": {
+      "CANCEL_BUTTON": "Otkaži termin",
+      "CANCEL_TITLE": "Otkazati termin?",
+      "CANCEL_MESSAGE": "Termin {{date}} bit će otkazan, a gosti obaviješteni. Ovo se ne može poništiti.",
+      "CANCEL_CONFIRM": "Otkaži termin",
+      "CONFIRMED": "Potvrđeno: termin bi bio otkazan.",
+      "ABORTED": "Odustali ste, ništa nije promijenjeno.",
+      "SELECTED": "Odabrani dan: {{date}}"
     }
   },
   "SKIPER": {
@@ -154,6 +163,17 @@
       "TITLE": "Pregled",
       "EMPTY_TITLE": "Nema dodijeljenih tura",
       "EMPTY": "Kad vlasnik agencije rasporedi turu na vas, vidjet ćete je ovdje."
+    }
+  },
+    "CALENDAR": {
+    "LABEL": "Kalendar termina",
+    "PREVIOUS": "Prethodni mjesec",
+    "NEXT": "Sljedeći mjesec",
+    "TODAY": "Danas",
+    "CONDITION": {
+      "GOOD": "Povoljno",
+      "CAUTION": "Oprez",
+      "CLOSED": "Crveni dan"
     }
   },
   "ADMIN_PANEL": {

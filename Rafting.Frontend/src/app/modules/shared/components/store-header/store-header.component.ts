@@ -4,7 +4,7 @@ import { CurrentUserService } from '../../../../core/services/auth/current-user.
 
 /**
  * Zaglavlje prodavnice: logo, pretraga, konvertor, korpa (badge), valuta, nalog.
- * Koriste ga PublicLayoutComponent (/, /search, /cart, ...) i ClientLayoutComponent (/client/...).
+ * Koriste ga PublicLayoutComponent (/, /search, /cart, ...)
  */
 @Component({
   selector: 'app-store-header',

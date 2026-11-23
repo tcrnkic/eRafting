@@ -140,6 +140,20 @@
     "NAV_LABEL": "Glavni meni",
     "OPEN_MENU": "Otvori meni"
   },
+    "OWNER": {
+    "MENU": { "OVERVIEW": "Pregled" },
+    "HOME": {
+      "TITLE": "Pregled",
+      "EMPTY": "Ovdje će biti rezervacije i termini vaše agencije. Počnite dodavanjem prve ture."
+    }
+  },
+  "SKIPER": {
+    "MENU": { "OVERVIEW": "Pregled" },
+    "HOME": {
+      "TITLE": "Pregled",
+      "EMPTY": "Ovdje će biti ture koje su vam dodijeljene. Kad vlasnik agencije rasporedi turu, vidjet ćete je ovdje."
+    }
+  },
   "ADMIN_PANEL": {
     "TITLE": "Admin Panel",
     "ROLES": {

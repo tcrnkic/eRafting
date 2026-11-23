@@ -145,15 +145,6 @@
       "TITLE": "Overview",
       "EMPTY_TITLE": "Start by adding your first tour",
       "EMPTY": "Once you add tours and slots, your agency's bookings will show up here."
-    },
-        "DEMO": {
-      "CANCEL_BUTTON": "Cancel slot",
-      "CANCEL_TITLE": "Cancel slot?",
-      "CANCEL_MESSAGE": "Slot {{date}} will be canceled, and guests will be notified. This cannot be undone.",
-      "CANCEL_CONFIRM": "Cancel slot",
-      "CONFIRMED": "Confirmed: the slot would be canceled.",
-      "ABORTED": "You have aborted the process, nothing has been changed.",
-      "SELECTED": "Selected date: {{date}}"
     }
   },
   "SKIPER": {

@@ -5,6 +5,7 @@ import { OwnerHomeComponent } from './owner-home/owner-home.component';
 import { OwnerLayoutComponent } from './owner-layout/owner-layout.component';
 import { OwnerRoutingModule } from './owner-routing-module';
 
+
 @NgModule({
   declarations: [OwnerLayoutComponent, OwnerHomeComponent],
   imports: [

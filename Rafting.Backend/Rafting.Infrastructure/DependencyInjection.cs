@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Rafting.Infrastructure.Notifications;
+using Rafting.Infrastructure.Weather;
 
 namespace Rafting.Infrastructure;
 
@@ -58,6 +60,11 @@ public static class DependencyInjection
 
         // Currency conversion (reads rates from the database)
         services.AddScoped<ICurrencyConverter, CurrencyConverter>();
+
+        // Shared contracts of flow A and flow B. Scoped: the notification service uses the scoped DbContext,
+        // and flow B's real forecast will probably need it too.
+        services.AddScoped<INotificationService, NotificationService>();
+        services.AddScoped<IWeatherAdvisory, NoDataWeatherAdvisory>();
 
         // Uploaded files (product images) in wwwroot/uploads
         services.AddSingleton<IFileStorage, LocalFileStorage>();

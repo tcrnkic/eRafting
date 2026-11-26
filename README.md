@@ -55,12 +55,12 @@ Ako HTTPS certifikat ne radi, pokrenite backend s profilom `http` i u `src/envir
 
 | Email | Lozinka | Uloga |
 |---|---|---|
-| `admin@rafting.local` | `Admin123!` | administrator (`/admin`) |
-| `manager@rafting.local` | `Manager123!` | menadžer |
-| `employee@rafting.local` | `Employee123!` | uposlenik |
-| `nina.bijedic@email.com`, `iris.memic@email.com`, `azra.smajic@email.com` | `Customer123!` | kupci, vlasnici demo narudžbi |
-| `string` | `string` | za Swagger |
-| `test` | `test123` | za testove |
+| `admin@rafting.local` | `Admin123!` | administrator platforme (`/admin`) |
+| `manager@rafting.local` | `Manager123!` | vlasnik agencije Una Rafting Demo |
+| `employee@rafting.local`, `employee2@rafting.local` | `Employee123!` | skiperi agencije Una Rafting Demo |
+| `manager.unabuk@rafting.local` | `Manager123!` | vlasnik agencije Una-Buk Rafting Demo |
+| `employee.unabuk@rafting.local`, `employee2.unabuk@rafting.local` | `Employee123!` | skiperi agencije Una-Buk Rafting Demo |
+| `nina.bijedic@email.com`, `iris.memic@email.com`, `azra.smajic@email.com` | `Customer123!` | gosti |
 
 Administrator nakon prijave ide na `/admin`, svi ostali na `/client`. Novi kupac se može registrovati na `/auth/register` (odmah je prijavljen). Lozinka mora imati najmanje 8 znakova, bar jedno slovo i jednu cifru.
 
